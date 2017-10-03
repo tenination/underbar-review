@@ -78,13 +78,14 @@
     // implemented for you. Instead of using a standard `for` loop, though,
     // it uses the iteration helper `each`, which you will need to write.
     var result = -1;
+    console.log('array:', array, 'target:', target)
 
     _.each(array, function(item, index) {
       if (item === target && result === -1) {
         result = index;
       }
     });
-
+    
     return result;
   };
 
