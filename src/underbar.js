@@ -40,7 +40,6 @@
   _.last = function(array, n) {
     
     var len = array.length;
-    console.log(len - n);
     if (n > len) {
       return array;
     }
