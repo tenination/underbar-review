@@ -78,7 +78,6 @@
     // implemented for you. Instead of using a standard `for` loop, though,
     // it uses the iteration helper `each`, which you will need to write.
     var result = -1;
-    console.log('array:', array, 'target:', target)
 
     _.each(array, function(item, index) {
       if (item === target && result === -1) {
@@ -91,13 +90,34 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
+    var outputArray = [];
+    _.each(collection, function(item, index, array) {
+      if (test(item)) {
+        outputArray.push(item);
+      }
+      
+    });
+    return outputArray;
   };
 
-  // Return all elements of an array that don't pass a truth test.
+  // Return all elements of an array that don't pass a truth test. [1, 2, 3, 4, 5]
   _.reject = function(collection, test) {
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
+    var filterArray = _.filter(collection, test); 
+    var rejectArray = [];
+    collection.forEach(function (element, index) {
+      if (!filterArray.includes(element)) {
+        rejectArray.push(element);
+      }
+    });
+    
+    return rejectArray;
+    
+    
   };
+  
+  
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
