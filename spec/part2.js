@@ -195,8 +195,8 @@
         // Replace this line with an `expect` statement that tests
         // the behavior described by the `it` string
         // throw new Error('This test is missing.');
-        var obj1 = { age : 23 };
-        var obj2 = { age : 24 };
+        var obj1 = { age: 23 };
+        var obj2 = { age: 24 };
         var extended = _.extend(obj1, obj2);
         expect(extended.age).to.equal(24);
       });
@@ -276,7 +276,11 @@
       it('should copy any property whose key is not already set on the target', function() {
         // Replace this line with an `expect` statement that tests
         // the behavior described by the `it` string
-        throw new Error('This test is missing.');
+        // throw new Error('This test is missing.');
+        var obj1 = { a: 1 };
+        var obj2 = { b: 2 };
+        var result = _.defaults(obj1, obj2);
+        expect(result.b).to.equal(2);
       });
 
       it('should not copy a property if that key is already set on the target', function() {
