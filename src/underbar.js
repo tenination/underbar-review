@@ -226,9 +226,9 @@
     for (var i = 0; i < collection.length; i++) {
       results.push(iterator(collection[i]));
     }
-    console.log('results:', results);
+    //console.log('results:', results);
     for (var j = 0; i < results.length; j++) {
-      console.log(results[j]);
+      //console.log(results[j]);
       if (results[j] !== true) {
         return false;
       }
@@ -243,6 +243,20 @@
   // provided, provide a default one
   _.some = function(collection, iterator) {
     // TIP: There's a very clever way to re-use every() here.
+    var outputArray = [];
+    for (var i = 0; i < collection.length; i++) {
+      if (iterator === undefined) {
+        if (collection[i]) {
+          outputArray.push(collection[i]); 
+        }
+      } else {
+        if (iterator(collection[i])) {
+          outputArray.push(collection[i]);
+        }
+      }
+      
+    }
+    return (outputArray.length > 0);
   };
 
 
